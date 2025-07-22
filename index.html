@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tailwind Weather App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+</head>
+<body class="min-h-screen transition-all duration-500 text-white">
+
+  <!-- App Wrapper -->
+  <div id="appWrapper" class="flex flex-col items-center justify-center min-h-screen px-4 py-6 bg-gradient-to-br from-blue-200 to-indigo-400 dark:from-slate-900 dark:to-gray-800 transition-all duration-500">
+
+    <!-- Theme Toggle -->
+    <button id="toggleTheme" class="absolute top-5 right-5 px-4 py-2 rounded bg-white text-black dark:bg-gray-800 dark:text-white shadow hover:scale-105 transition">
+      Change Theme
+    </button>
+
+    <!-- Heading -->
+    <h1 class="text-3xl sm:text-4xl font-bold mb-6 text-center drop-shadow-md">🌦️ Weather App</h1>
+
+    <!-- Input & Button -->
+    <div class="w-full max-w-sm flex flex-col sm:flex-row gap-3 mb-6">
+      <input id="cityInput" type="text" placeholder="Enter city" class="w-full px-4 py-2 rounded shadow text-black outline-none" />
+      <button id="getWeatherBtn" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold transition">Get Weather</button>
+    </div>
+
+    <!-- Loading & Error -->
+    <div id="loading" class="mb-4 text-yellow-300 hidden animate-pulse">Fetching weather...</div>
+    <div id="error" class="text-red-400 font-medium mb-4 text-center"></div>
+
+    <!-- Weather Card -->
+    <div id="weatherCard" class="hidden w-full max-w-sm text-center p-6 rounded-xl shadow-lg bg-white/30 dark:bg-black/30 backdrop-blur-md">
+      <h2 id="cityName" class="text-2xl font-bold mb-2"></h2>
+      <p id="temperature" class="text-xl mb-1"></p>
+      <p id="condition" class="text-lg mb-4"></p>
+      <img id="icon" class="mx-auto w-20 h-20" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
